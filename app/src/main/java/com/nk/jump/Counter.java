@@ -67,6 +67,7 @@ public class Counter implements SensorEventListener {
 
         cleanup();
         mWorkout.mStart = System.currentTimeMillis();
+        if (mJumpListener != null) { mJumpListener.onJump(mWorkout.mJumps); }
 
         final SensorManager sensorManager = (SensorManager) mActivity.getSystemService(SENSOR_SERVICE);
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_UI);
