@@ -1,4 +1,4 @@
-package com.nk.jump;
+package com.nk.jump.utils;
 
 import android.app.Activity;
 import android.hardware.Sensor;
@@ -84,6 +84,10 @@ public class Counter implements SensorEventListener {
             mWorkout.mEnd = System.currentTimeMillis();
             Logger.logWorkout(mActivity, mWorkout);
         }
+    }
+
+    public final Workout getWorkout() {
+        return mWorkout;
     }
 
     public boolean isStarted(){

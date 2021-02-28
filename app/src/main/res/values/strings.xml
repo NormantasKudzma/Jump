@@ -7,7 +7,9 @@
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="jumps">Jumps</string>
+    <string name="jumps_placeholder">0</string>
     <string name="duration">Duration</string>
+    <string name="duration_placeholder">00:00:00</string>
 
     <string name="stats">Here be stats</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.nk.jump;
+package com.nk.jump.utils;
 
 import android.app.Activity;
 import android.content.Context;

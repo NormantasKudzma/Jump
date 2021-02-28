@@ -1,4 +1,4 @@
-package com.nk.jump;
+package com.nk.jump.utils;
 
 public class Workout {
     public long mStart;

@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
         catch (Exception ignored) {
-            ignored.printStackTrace();
+
         }
     }
 }
