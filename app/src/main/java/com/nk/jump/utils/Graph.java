@@ -3,7 +3,6 @@ package com.nk.jump.utils;
 import android.graphics.Color;
 
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -29,20 +28,16 @@ public class Graph {
         mRollover = rollover;
         mChart = chart;
 
-        final YAxis yAxis = mChart.getAxisLeft();
-        yAxis.setAxisMinimum(0.0f);
-        yAxis.setAxisMaximum(20.0f);
-
         new Thread() {
             @Override
             public void run() {
                 try {
                     while (mRunning){
+                        refreshGraph();
+                        Thread.sleep(500);
                         synchronized (mRefreshSync){
                             mRefreshSync.wait();
                         }
-                        refreshGraph();
-                        Thread.sleep(500);
                     }
                 }
                 catch (Exception ignored){
@@ -56,6 +51,9 @@ public class Graph {
     protected void finalize() throws Throwable {
         super.finalize();
         mRunning = false;
+        synchronized (mRefreshSync){
+            mRefreshSync.notify();
+        }
     }
 
     public void cleanup() {
